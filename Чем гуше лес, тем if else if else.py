@@ -135,8 +135,8 @@ if users:
 else:
 	print("We need to ind some users")
 
-cur_users = ['adam', 'max', 'dima', 'misha', 'gesha']
-new_users = ['gesha', 'MAX', 'sergay', 'gayorgy', 'dima']
+cur_users = ['adam', 'max', 'dima',  'geysha']
+new_users = ['geysha', 'MAX', 'sergay', 'gayorgy', 'dima']
 for name in cur_users:
 	if name in new_users:
 		print(f"Your name is old, {name.title()}, please write another name")
