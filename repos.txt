@@ -1,2 +1,2 @@
-gosha lox
+gosha ne lox
 
