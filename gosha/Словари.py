@@ -68,7 +68,9 @@ print(f"else - {glossary['else']}")
 print(f"del - {glossary['del']}")
 print(f"title - {glossary['title'].title()}")
 print(f"upper - {glossary['upper']}")
+
 # перебор списков 1.06.26
+
 user = {
 	'username': 'kitagarin',
 	'firstname': 'enrico',
@@ -143,18 +145,23 @@ for name, language in peoples.items():
 for name in peoples1:
 	if name not in peoples:
 		print(f"{name.title()}, please vote for your favourite language")
+
 # дальше "Вложение" 2.06.26
+
 alien1 = {'color': 'green', 'points': 5}
 alien2 = {'color': 'yellow', 'points': 10}
 alien3 = {'color': 'red', 'points': 15}
 aliens = [alien1, alien2, alien3]
+
 for alien in aliens:
 	print(alien)
 
 aliens = []
+
 for alien_num in range(30):
 	new_alien = {'color': 'green', 'points': 5, 'speed': 'slow'}
 	aliens.append(new_alien)
+
 for alien in aliens[:3]:
 	if alien['color'] == 'green':
 		alien['color'] = 'yellow'
@@ -164,17 +171,22 @@ for alien in aliens[:3]:
 		alien['color'] = 'red'
 		alien['speed'] = 'fast'
 		alien['points'] = 15
+
 for alien in aliens[:5]:
 	print(alien)
+
 print("...")
+
 print(f"Total number of aliens : {len(aliens)}")
 
 pizza = {
 	'crust': 'thick',
 	'toppings': ['mushrooms', 'cheese', 'pepperoni']
 }
+
 print(f"You ordered a {pizza['crust']} - crust pizza "
 	"with following toppings:")
+
 for top in pizza['toppings']:
 	print("\t" + top)
 
@@ -184,6 +196,7 @@ fav_langs = {
 	'grig': ['java_script', 'html'],
 	'zoophil': ['python', 'C#']
 }
+
 for name, languages in fav_langs.items():
 	if len(languages) == 1:
 		print(f"\n {name.title()}'s favourite language is:")
@@ -191,6 +204,71 @@ for name, languages in fav_langs.items():
 		print(f"\n{name.title()}'s favourite languages are:")
 	for language in languages:
 		print(f"\t{language.title()}")
+
 # дальше словарь в словаре 3.06.26
+
+users = {'aepstein': {
+			'firstname': 'albert',
+			'lastname': 'epstein',
+			'location': 'princeton'},
+		 'cmarie': {
+		 	'firstname': 'marie',
+		 	'lastname': 'curie',
+		 	'location': 'paris'
+		 			}
+		 }
+for username, user_info in users.items():
+	print(f"\nUsername: {username.title()}")
+	full_name = f"{user_info['firstname']} {user_info['lastname']}"
+	location = user_info['location']
+	print(f"\tFull name: {full_name.title()}")
+	print(f"\tLocation: {location.title()}")
+
+# упражнения 
+
+people = {
+	'kurtka': {
+	'name': 'kurtka',
+	'surname': 'brain',
+	'age': 27,
+	'place': 'none'
+	},
+	'kurt': {
+	'name': 'kurt',
+	'surname': 'kombain',
+	'age': 27,
+	'place': 'land'
+	}
+}
+
+for fname, lname in people.items():
+	print(f"Name: {fname.title()}")
+	f_name = f"{lname['name']} {lname['surname']}"
+	age = lname['age']
+	place = lname['place']
+	print(f"\tFull name: {f_name.title()}")
+	print(f"\tAge: {age}")
+	print(f"\tPlace: {place.title()}")
+
+
+
+sphere = {
+			'name': 'sphere',
+			'kind': 'hotdog',
+			'name_owner': 'stan'
+		 }
+
+bosik = {
+			'name': 'bonnie',
+			'kind': 'cat',
+			'name_owner': 'gesha'
+		}
+
+pets = [sphere, bosik]
+
+for pet in pets:
+	print(f"Name: {pet['name'].title()}")
+	print(f"Kind: {pet['kind'].title()}")
+	print(f"Owner name: {pet['name_owner'].title()}")
 
 
