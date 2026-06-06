@@ -42,7 +42,9 @@ print(f"Sisis's favourite language is {lang}")
 alien = {'color': 'green', 'speed': 'slow'}
 point_value = alien.get('points', 'Nihuya u tebya points\n')
 print(point_value)
+
 # упражнения
+
 person = {'name': 'kurtka', 'surname': 'brain', 'age': '27', 'place': 'none'}
 print(person['name'].title())
 print(person['surname'].title())
@@ -255,7 +257,7 @@ for fname, lname in people.items():
 sphere = {
 			'name': 'sphere',
 			'kind': 'hotdog',
-			'name_owner': 'stan'
+			'name_owner': 'stan\n'
 		 }
 
 bosik = {
@@ -271,4 +273,52 @@ for pet in pets:
 	print(f"Kind: {pet['kind'].title()}")
 	print(f"Owner name: {pet['name_owner'].title()}")
 
+fav_places = {
+	'forest': ['gesha', 'misha'],
+	'town': 'nobody',
+	'river': 'everybody'
+			 }
+for place, names in fav_places.items():
+	if names == ['gesha', 'misha']:
+		print(f"People, who likes {place}: {names[0].title()}, {names[1].title()}")
+	else:
+		print(f"People, who likes {place}: {names.title()}")
+
+print('')
+
+fav_nums = {
+	'kurtka': [27],
+	'saddam': [15],
+	'goida': [1488],
+	'mista': [4,44,444,4444],
+	'pucci': [67]
+		   }
+
+for name, nums in fav_nums.items():
+	if len(nums) == 1:
+		print(f"{name.title()} likes this number:", *nums)
+	else:
+		print(f"{name.title()} likes these numbers:", *nums)
+
+cities = {
+	'kamyshin': {
+		'country': 'russia',
+		'population': 100000
+				},
+	'moscow': {
+		'country': 'russia',
+		'population': 13000000
+			  },
+	'berlin': {
+		'country': 'germany',
+		'population': 4000000 
+			  }
+		}
+
+for city, city_info in cities.items():
+	country = city_info['country']
+	population = city_info['population']
+	print(f"There is a {city.title()} in the country {country.title()}, and have population about {population} ")
+
+# кончил всю главу 06.06.26
 
