@@ -273,6 +273,8 @@ for pet in pets:
 	print(f"Kind: {pet['kind'].title()}")
 	print(f"Owner name: {pet['name_owner'].title()}")
 
+# продолжил 06.06.26
+
 fav_places = {
 	'forest': ['gesha', 'misha'],
 	'town': 'nobody',
