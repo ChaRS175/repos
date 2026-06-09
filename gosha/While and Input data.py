@@ -100,21 +100,94 @@ while x <= 5:
 # 	else:
 # 		print(mes)
 
-age = input("Write your age: ")
-age = int(age)
-while True:
-	if age < 3:
-		cost = "$0"
-		print(f"Your ticket cost is {cost}")
-		break
-	elif age >= 3 and age < 12:
-		cost = "$10"
-		print(f"Your ticket cost is {cost}")
-		break
-	elif age >= 12:
-		cost = "$15"
-		print(f"Your ticket cost is {cost}") 
-		break
+# age = input("Write your age: ")
+# age = int(age)
+# while True:
+# 	if age < 3:
+# 		cost = "$0"
+# 		print(f"Your ticket cost is {cost}")
+# 		break
+# 	elif age >= 3 and age < 12:
+# 		cost = "$10"
+# 		print(f"Your ticket cost is {cost}")
+# 		break
+# 	elif age >= 12:
+# 		cost = "$15"
+# 		print(f"Your ticket cost is {cost}") 
+# 		break
 	
-		
+# Использование цикла While со списками и словарями 09.06.26
 
+unconfirmed_users = ['zoophil', 'pdidi', 'brinemaps']
+confirmed_users = []
+while unconfirmed_users: 
+	current_user = unconfirmed_users.pop()
+	print(f"Verifying user: {current_user.title()}")
+	confirmed_users.append(current_user)
+print("\nThe following users have been confirmed: ")
+for confirmed_user in confirmed_users:
+	print(confirmed_user.title())
+
+pets = ['dog', 'cat', 'dog', 'cat', 'swordfish', 'cat', 'hamstercombat']
+print(pets)
+
+while 'cat' in pets:
+	pets.remove('cat')
+while 'dog' in pets:
+	pets.remove('dog')
+
+print(pets)
+
+# answers = {}
+
+# active = True
+
+# while active:
+# 	name = input("What is your name? ")
+# 	answer = input("\nWhat mountain would you like to climb? ")
+# 	answers[name] = answer
+
+# 	repeat = input("Would you like to let another people answer? (y/n)")
+# 	if repeat == 'n':
+# 		active = False
+# print("\n---Poll Results---")
+# for name, answer in answers.items():
+# 	print(f"{name.title()} would you like to climb {answer.title()}?")
+
+# упражнения
+
+sandwich_orders = ['burger', 'buter', 'bulochka']
+finished_in_sandwiches = []
+while sandwich_orders:
+	sandwich = sandwich_orders.pop()
+	print(f"Order: {sandwich}")
+	finished_in_sandwiches.append(sandwich)
+print(f"Finished in sandwiches: ")
+for sandwich in finished_in_sandwiches:
+	print(f"\t{sandwich}")
+
+
+sandwiches = ['pastrami', 'pastrami', 'pepperoni', 'cheese', 'pastrami']
+print(sandwiches)
+
+while 'pastrami' in sandwiches:
+	sandwiches.remove('pastrami')
+print(sandwiches)
+
+poll = {}
+active = True
+
+while active:
+	name = input("What is your name? ")
+	prefer = input("Where would you like have a rest? ")
+	poll[name] = prefer
+
+	repeat = input("Would you like let other people answer? (y/n)")
+	if repeat == 'n':
+		active = False
+
+print("---Poll Results---")
+for name, prefer in poll.items():
+	print(f"{name.title()}, are you serious would like to visit {prefer.title()} for rest?")
+
+# кончил 09.06.26 
