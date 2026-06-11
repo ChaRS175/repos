@@ -72,3 +72,64 @@ musician = build_person('michael', 'jackson', age = 50)
 print(musician)
 
 # использование функции в цикле while 11.06.26
+
+def form_name():
+	def get_formatted_name(first_name, last_name):
+		full_name = f"{first_name} {last_name}"
+		return full_name.title()
+
+	while True:
+		print("\nPlease tell me your name: ")
+		print("Enter q or quit to exit")
+		f_name = input("Firstname: ")
+		if f_name == 'q' and 'quit':
+			break
+		l_name = input("Lastname: ")
+		if l_name == 'q' and 'quit':
+			break
+
+		formatted_name = get_formatted_name(f_name, l_name)
+		print(f"\nHello, {formatted_name.title()}")
+
+		mes = input("\nWould you like let other people continue? (y/n) ")
+		if mes == "n":
+			break
+
+
+
+# упражнения
+
+def city_country(city, country):
+	print(f"{city.title()}, {country.title()}")
+
+city_country('brazilia', 'brazil')
+city_country('kamyshin', 'russia')
+city_country('london', 'united kingdom')
+
+def make_album(name, title, lines = ''):
+	alb = {'Name': name.title(), 'Title': title.title()} 
+	if lines:
+		alb['lines'] = lines
+	return alb
+
+while True:
+	print("\nEnter name of musician and title of album: ")
+	name = input("Name of musician: ")
+	if name == 'q' and 'quit':
+		break
+	title = input("Title of album: ")
+	if title == 'q' and 'quit':
+		break
+	album = make_album(name, title)
+	print(f"{album}")
+
+	message = input("\nWould you like to add other albums? (y/n) ")
+	if message == 'n':
+		break
+
+# передача списка 12.06.26
+
+
+
+
+
