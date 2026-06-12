@@ -106,30 +106,78 @@ city_country('brazilia', 'brazil')
 city_country('kamyshin', 'russia')
 city_country('london', 'united kingdom')
 
-def make_album(name, title, lines = ''):
-	alb = {'Name': name.title(), 'Title': title.title()} 
-	if lines:
-		alb['lines'] = lines
-	return alb
+# def make_album(name, title, lines = ''):
+# 	alb = {'Name': name.title(), 'Title': title.title()} 
+# 	if lines:
+# 		alb['lines'] = lines
+# 	return alb
 
-while True:
-	print("\nEnter name of musician and title of album: ")
-	name = input("Name of musician: ")
-	if name == 'q' and 'quit':
-		break
-	title = input("Title of album: ")
-	if title == 'q' and 'quit':
-		break
-	album = make_album(name, title)
-	print(f"{album}")
+# while True:
+# 	print("\nEnter name of musician and title of album: ")
+# 	name = input("Name of musician: ")
+# 	if name == 'q' and 'quit':
+# 		break
+# 	title = input("Title of album: ")
+# 	if title == 'q' and 'quit':
+# 		break
+# 	album = make_album(name, title)
+# 	print(f"{album}")
 
-	message = input("\nWould you like to add other albums? (y/n) ")
-	if message == 'n':
-		break
+# 	message = input("\nWould you like to add other albums? (y/n) ")
+# 	if message == 'n':
+# 		break
 
 # передача списка 12.06.26
 
+def greet_users(names):
+	for name in names:
+		msg = f"Hello, {name.title()}"
+		print(msg)
+
+usernames = ['yan', 'pines', 'fibrik']
+greet_users(usernames)
+
+def print_models(unprinted, completed):
+	while unprinted:
+		cur_design = unprinted.pop()
+		print(f"Printing model: {cur_design}")
+		completed.append(cur_design)
+
+def show_completed(completed):
+	print("\nThe following models have been printed: ")
+	for complete in completed:
+		print(complete)
+
+unprinted = ['phone case', 'robot pend']
+completed = []
+
+print_models(unprinted[:], completed)
+show_completed(completed)
+
+# упражнения
+
+msgs = ['pines you are pines', 'msg msg msg', 'pst pst, pst pst']
+
+def show_msgs(msg):
+	for msg in msgs:
+		print(msg)
+
+show_msgs(msgs)
 
 
+def send_msgs(msgs, sent_msgs):
+	while msgs:
+		msg = msgs.pop()
+		print(f"Not sent messages: {msg}")
+		sent_msgs.append(msg)
 
+def show_msgs(msg):
+	print("\nSent messages: ")
+	for msg in sent_msgs:
+		print(msg)
+
+sent_msgs = []
+
+send_msgs(msgs [:], sent_msgs)
+show_msgs(msgs)
 
