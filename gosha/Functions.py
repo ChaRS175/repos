@@ -181,3 +181,101 @@ sent_msgs = []
 send_msgs(msgs [:], sent_msgs)
 show_msgs(msgs)
 
+print(msgs)
+
+# передача произвольного набора аргументов 13.06.26
+
+def make_pizza(size, *toppings):
+	print(f"Making pizza {size}-centimeters")
+	for top in toppings:
+		print(f"- {top}")
+
+make_pizza(30, 'pepperoni\n')
+make_pizza(35,'mushrooms', 'green peppers', 'extra cheese')
+
+def build_profile(first, last, **userinfo):
+	userinfo['firstname'] = first
+	userinfo['lastname'] = last
+	return userinfo
+
+user_profile = build_profile('albert', 'epstein', location = 'germany', interest = 'physics')
+print(user_profile)
+
+# упражнения
+
+def sandwich_components(*component):
+	print(component)
+
+sandwich_components('lettuce')
+sandwich_components('toast', 'meat')
+
+def build_profile(name, surname, **list_of_smth):
+	list_of_smth['name'] = name.title()
+	list_of_smth['surname'] = surname.title()
+	return list_of_smth
+
+var = build_profile('gesha', 'pines', location = 'russia', age = 15, interest = 'math')
+print(var)
+
+def car(producer, mark, **car_info):
+	car_info['producer'] = producer.title()
+	car_info['mark'] = mark.title()
+	return car_info
+
+Kars = car('bmw', 'bmw', color = 'blue', model = 'X8')
+print(Kars)
+
+# хранение функций в модулях
+
+import Module_for_Functions
+
+Module_for_Functions.make_pizza(30, 'pepperoni')
+Module_for_Functions.make_pizza(35, 'mushrooms', 'green peppers', 'cheese')
+
+# импортирование конкретных функций
+
+from Module_for_Functions import make_pizza
+# from Module_for_Functions import 1function, 2function, 3function и т.д.
+make_pizza(24, 'pepperoni')
+make_pizza(67, 'mushrooms', 'green peppers', 'cheese')
+
+# назначение псевдонима(alias(as)) для функции
+
+from Module_for_Functions import make_pizza as mpz
+
+mpz("6-7", 'pepperoni')
+mpz(67, 'mushrooms', 'cheese')
+
+# назначение псевдонима для модуля
+
+import Module_for_Functions as MfF
+MfF.make_pizza(14, 'pepperoni')
+MfF.make_pizza(23, 'mushrooms', 'peppers')
+
+# импортирование всех функций модуля
+
+from Module_for_Functions import * # <-- импорт всех функций
+
+make_pizza(27, 'mushrooms')
+make_pizza(38, 'cheese\n')
+
+# упражнения 
+
+import Module_for_print_models as Mfpm
+
+Mfpm.print_models(unprinted, completed)
+
+from Module_for_print_models import print_models as pm
+
+pm(unprinted, completed)
+
+# кончил тему 13.06.26
+
+
+
+
+
+
+
+
+
