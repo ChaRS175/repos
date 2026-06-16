@@ -94,6 +94,9 @@ class Car():
 	def increment_odometer(self, miles):
 		self.odometer_reading += miles
 
+	def fill_gas_tank(self):
+		print("Gas tank has been filled")
+
 my_new_car = Car('audi', 'a4', 2019)
 print(my_new_car.get_descriptive_name())
 
@@ -109,6 +112,7 @@ my_used_car.read_odometer()
 	
 my_used_car.increment_odometer(44176)
 my_used_car.read_odometer()
+my_used_car.fill_gas_tank()
 
 # упражнения
 
@@ -156,7 +160,10 @@ class User():
 		self.login_attempts = 0
 
 	def describe_user(self):
-		print("You are user pidore")
+		print(f"\nFirstname: {user.firstname}, Lastname: {user.lastname}, Age: {user.age}")
+
+	def describe_another_user(self):
+		print(f"Firstname: {user_another.firstname}, Lastname: {user_another.lastname}, Age: {user_another.age}")
 
 	def greet_user(self):
 		print(f"Hi, poshol nahui, {self.firstname}")
@@ -171,13 +178,11 @@ class User():
 		self.login_attempts = 0
 
 user = User('gesha', 'pines', 148)
-print(f"\nFirstname: {user.firstname}, Lastname: {user.lastname}, Age: {user.age}")
 user.describe_user()
 user.greet_user()
 
 user_another = User('misha', 'gummy', 'ded_stariy')
-print(f"Firstname: {user_another.firstname}, Lastname: {user_another.lastname}, Age: {user_another.age}")
-user_another.describe_user()
+user_another.describe_another_user()
 user_another.greet_user()
 
 user.increment_login_attepmts(5)
@@ -187,6 +192,76 @@ user.login_attempts_f()
 user.increment_login_attepmts(3)
 user.login_attempts_f()
 
+# наследование 16.06.26
+
+class Battery():
+	def __init__(self, battery_size = 75):
+		self.battery_size = battery_size
+
+	def describe_battery(self):
+		print(f"This car has a {self.battery_size}-kWh battery")
+
+	def get_range(self):
+		if self.battery_size == 75:
+			range = 260
+		elif self.battery_size == 100:
+			range = 315
+		print(f"This car can go about {range} miles on a full charge")
+
+	def upgrade_battery(self):
+		if self.battery_size <= 100:
+			self.battery_size = 100
+
+class ElecticCar(Car):
+ 	def __init__(self, make, model, year):
+ 		super().__init__(make, model, year)
+ 		self.battery = Battery()
+
+ 	def fill_gas_tank(self):
+ 		print("Electric car has not gas tank")
+
+my_tesla = ElecticCar('tesla', 'model_s', 2019)
+print(f"\n{my_tesla.get_descriptive_name()}")
+my_tesla.fill_gas_tank()
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+
+# упражнения
+
+class IceCreamStand(Restaraunt):
+	def __init__(self, *flavors):
+		self.flavors = flavors
+
+	def icecream_flavors(self):
+		print(f"IceCream flavors: ")
+		for flavor in self.flavors:
+			print(f"\t{flavor}")
 
 
+icecream = IceCreamStand('piska', 'cum', 'creampie')
+icecream.icecream_flavors()
 
+class Privileges():
+	def __init__(self, *privileges):
+		self.privileges = privileges
+
+	def show_privileges(self):
+		print(f"Your privileges:")
+		for privilege in self.privileges:
+			print(f"\tYou can {privilege}")
+
+
+class Admin(User):
+	def __init__(self, first_name, last_name, *privileges):
+		self.privileges = Privileges(*privileges)
+
+adminchek = Admin('gesha', 'pines', "write messages", "ban users", "delete users", "mute users")
+adminchek.privileges.show_privileges()
+
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+my_tesla.battery.upgrade_battery()
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+
+# импортирование классов 17.06.26
