@@ -265,3 +265,85 @@ my_tesla.battery.describe_battery()
 my_tesla.battery.get_range()
 
 # импортирование классов 17.06.26
+
+from Module_for_Classes import Car
+
+print('')
+
+my_new_car = Car('audi', 'a4', 2019)
+
+print(my_new_car.get_descriptive_name())
+my_new_car.odometer_reading = 23
+my_new_car.read_odometer()
+
+from Module_for_ElectricCar import ElecticCar
+
+print('')
+
+my_tesla = ElecticCar('tesla', 'model_s', 2019)
+
+print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+
+from Module_for_Classes import Car
+from Module_for_ElectricCar import ElecticCar
+
+print('')
+
+my_beetle = Car('volkswagen', 'beetle', 2019)
+print(my_beetle.get_descriptive_name())
+
+print('')
+
+my_tesla = ElecticCar('tesla', 'roadster', 2019)
+print(my_tesla.get_descriptive_name())
+
+import Module_for_Classes as MfC
+import Module_for_ElectricCar as MfE
+
+print('')
+
+my_beetle = MfC.Car('volkswagen', 'beetle', 2019)
+print(my_beetle.get_descriptive_name())
+
+print('')
+
+my_tesla = MfE.ElecticCar('tesla', 'roadster', 2019)
+print(my_tesla.get_descriptive_name())
+
+from Module_for_Classes import Car
+from Module_for_ElectricCar import ElecticCar as EC
+
+print('')
+
+my_beetle = Car('volkswagen', 'beetle', 2019)
+print(my_beetle.get_descriptive_name())
+
+print('')
+
+my_tesla = EC('tesla', 'roadster', 2019)
+print(my_tesla.get_descriptive_name())
+
+# упражнения
+
+import Module_Restaraunt as MR
+
+print('')
+
+restaraunt = MR.Restaraunt('pineseses', '6.7 stars')
+print(restaraunt.describe_restaraunt())
+
+
+import Module_Admin as MA
+
+print('')
+
+adminchek = MA.Admin('gesha', 'pines', "write messages", "ban users", "delete users", "mute users")
+print(adminchek.privileges.show_privileges())
+
+
+adminik = MA.Admin('pines', 'fibr', "write messages", "ban users")
+print(adminik.privileges.show_privileges())
+
+# стандартная библиотека Python 18.06.26
