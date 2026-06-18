@@ -347,3 +347,60 @@ adminik = MA.Admin('pines', 'fibr', "write messages", "ban users")
 print(adminik.privileges.show_privileges())
 
 # стандартная библиотека Python 18.06.26
+
+# >>> from random import randint
+# >>> randint(1, 6)
+# 3
+
+# >>> from random import choice
+# >>> players = ['charles', 'martina', 'michael', 'florence', 'eli']
+# >>> first_up = choice(players)
+# >>> first_up
+# 'florence'
+
+#упражнения
+
+import random
+
+class Die():
+	def __init__(self, sides = 20):
+		self.sides = sides
+
+	def roll_die(self):
+		num = random.randint(1, self.sides)
+		print(f"Num: {num}")
+
+cube = Die()
+for chislo in range(10):
+	cube.roll_die()
+
+from random import choice
+
+listik = [2, 'a', 3, 5, 'v', 7, 11, 'd', 'e', 'w', 13, 17, 23, 29, 31]
+
+def get_biletik(*args):
+	num = str(choice(args))
+	return num
+
+ticket = get_biletik(*listik) + get_biletik(*listik) + get_biletik(*listik) + get_biletik(*listik)
+print(F"Biletik code: {ticket}")
+
+my_ticket = ['a', 7, 11, 'w']
+
+def generate_ticket(nums, length = 4):
+	return random.choices(nums, k = length)
+
+attempts = 0
+win_ticket = []
+
+while win_ticket != my_ticket:
+	win_ticket = generate_ticket(listik)
+	attempts += 1
+
+print(f"Win Biletik: {win_ticket}")
+print(f"Your Biletik: {my_ticket}")
+print(f"Attempts: {attempts}")
+
+# оформление классов 19.06.26
+
+
