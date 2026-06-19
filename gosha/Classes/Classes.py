@@ -401,6 +401,8 @@ print(f"Win Biletik: {win_ticket}")
 print(f"Your Biletik: {my_ticket}")
 print(f"Attempts: {attempts}")
 
-# оформление классов 19.06.26
+# кончил 18.06.26
+
+
 
 
