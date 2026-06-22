@@ -211,4 +211,115 @@ print(line.lower().count('pines'))
 
 # сохранение данных 22.06.26
 
+import json
+
+nums = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43]
+
+filename = 'nums.json'
+with open(filename, 'w') as f:
+	json.dump(nums, f)	
+
+with open(filename) as file:
+	numbers = json.load(file)
+
+print(numbers)
+
+print('')
+
+def get_stored_username():
+	filename = 'username.json'
+
+	try:
+	    with open(filename) as f:
+	        username = json.load(f)
+	except (FileNotFoundError, json.JSONDecodeError):
+	    return None
+	else:
+	   	return username
+
+def get_new_username():
+	username = input("Enter your name: ")
+	filename = 'username.json'
+	with open(filename, 'w') as f:
+		json.dump(username, f)
+	return username
+
+def greet_back_user():
+	import json
+
+	username = get_stored_username()
+
+	if username:
+		print(f"Welcome back, {username}!")
+	else:
+		username = get_new_username()
+		print("We will remember your name when you come back")
+
+greet_back_user()
+
+# упражнения
+
+print('')
+
+
+import json
+
+file = 'favourite_number.json'
+try:
+	with open(file) as f:
+		num = json.load(f)
+
+	print(f"I know your favourite number, is {num}")
+
+except (FileNotFoundError, json.JSONDecodeError):
+	fav_num = input("Enter your favourite number: ")
+	fav_num = int(fav_num)
+
+	with open(file, 'w') as f:
+		json.dump(fav_num, f)
+
+	file = 'favourite_number.json'
+
+print('')
+
+
+def get_stored_username():
+	filename = 'username.json'
+
+	try:
+	    with open(filename) as f:
+	        username = json.load(f)
+	except (FileNotFoundError, json.JSONDecodeError):
+	    return None
+	else:
+	   	return username
+
+def get_new_username():
+	username = input("Enter your name: ")
+	filename = 'username.json'
+	with open(filename, 'w') as f:
+		json.dump(username, f)
+	return username.title()
+
+def greet_back_user():
+	import json
+
+	username = get_stored_username()
+
+	if username:
+		captcha = input(f"You are {username.title()}? (Yes/No) ")
+		print('')
+		if captcha == 'No':
+			username = get_new_username()
+			print("We will remember your name when you come back")
+		elif captcha == 'no':
+			username = get_new_username()
+			print("We will remember your name when you come back")
+		else:
+			print(f"Welcome back, {username.title()}!")
+		
+
+greet_back_user()
+
+# кончил 22.06.26
 
