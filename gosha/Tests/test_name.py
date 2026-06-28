@@ -13,7 +13,13 @@ class NamesTestCase(unittest.TestCase):
 if __name__ == '__main__':
 	unittest.main()
 
-# упражнения
+# упражнения 
+
+# 1.city_functions
+# 2.city
+# 3.test_city
+
+
 
 
 
