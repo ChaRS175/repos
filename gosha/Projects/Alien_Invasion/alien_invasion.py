@@ -1,4 +1,4 @@
-# начал вроде 26.06.26
+	# начал вроде 26.06.26
 
 import sys
 
@@ -45,7 +45,7 @@ class AlienInvasion:
 		elif event.key == pygame.K_ESCAPE:
 			sys.exit()
 
-	def _check_keyup_events(self,event):
+	def _check_keyup_events(self, event):
 		if event.key == pygame.K_RIGHT:
 			self.ship.moving_right = False
 		elif event.key == pygame.K_LEFT:
@@ -67,3 +67,7 @@ if __name__ == '__main__':
 # управление кораблём 28.06.26
 
 # в двух словах 29.06.26
+
+# упражнение Ракета 29.06.26 
+
+# упражнение Клавиши 30.06.26
