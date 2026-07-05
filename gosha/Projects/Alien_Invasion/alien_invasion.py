@@ -44,10 +44,10 @@ class AlienInvasion:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				sys.exit()
-			elif event.type == pygame.KEYUP:
-				self._check_keyup_events(event)
 			elif event.type == pygame.KEYDOWN:
 				self._check_keydown_events(event)
+			elif event.type == pygame.KEYUP:
+				self._check_keyup_events(event)
 				
 	def _check_keydown_events(self, event):
 		if event.key == pygame.K_RIGHT:
@@ -71,7 +71,6 @@ class AlienInvasion:
 			self.bullets.add(new_bullet)
 
 	def _bullets_update(self):
-
 		self.bullets.update()
 
 		for bullet in self.bullets.copy():
@@ -178,3 +177,8 @@ if __name__ == '__main__':
 # добавление на экран пришельцев 3.07.26
 
 # упражнения Звезда, Звезда-2 4.07.26
+# добавление движения прищельцев 4.07.26
+
+# упражнения Капли и Дождь 5.07.26
+
+# уничтожение прищельцев 6.07.26
