@@ -7,6 +7,7 @@ import pygame
 from settings_tablet import Settings
 from ship_tablet import Ship
 from bullet_tablet import Bullet
+from alien_tablet import Alien_tablet
 
 class AlienInvasion:
 
@@ -14,8 +15,7 @@ class AlienInvasion:
 		pygame.init() # инициализация игры и ресурсов
 		self.settings_tablet = Settings()
 
-		self.screen = pygame.display.set_mode((self.settings_tablet.screen_width, self.settings_tablet.screen_height))
-		
+		self.screen = pygame.display.set_mode((1000, 800))
 		self.settings_tablet.screen_width = self.screen.get_rect().width
 		self.settings_tablet.screen_height = self.screen.get_rect().height
 
@@ -24,18 +24,16 @@ class AlienInvasion:
 
 		self.ship_tablet = Ship(self)
 		self.bullets = pygame.sprite.Group()
+		self.aliens = pygame.sprite.Group()
+
+		self._create_fleet()
 
 	def run_game(self):
 		while True: # отслеживание событий клавиатуры и мыши
 			self._check_events()
 			self.ship_tablet.update()
-			self.bullets.update()
-
-			for bullet in self.bullets.copy():
-				if bullet.rect.left >= self.screen_rect.right:
-					self.bullets.remove(bullet)
-			print(len(self.bullets))
-			
+			self._bullets_update()
+			self._update_aliens()
 			self._update_screen()
 
 
@@ -69,11 +67,61 @@ class AlienInvasion:
 			new_bullet = Bullet(self)
 			self.bullets.add(new_bullet)
 
+	def _bullets_update(self):
+		self.bullets.update()
+
+		for bullet in self.bullets.copy():
+			if bullet.rect.left >= self.screen_rect.right:
+				self.bullets.remove(bullet)
+		# print(len(self.bullets))
+
+		self._check_collision()
+		self._check_fleet()
+
+	def _check_collision(self):
+		collision = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+
+	def _check_fleet(self):
+		if not self.aliens:
+			self.bullets.empty()
+			self._create_fleet()
+
+	def _create_fleet(self):
+		alien_tablet = Alien_tablet(self)
+		alien_width, alien_height = alien_tablet.rect.size
+		ship_width = self.ship_tablet.rect.width
+		available_space_x = self.settings_tablet.screen_width - alien_width - 2 * ship_width
+		num_aliens_x = available_space_x // (3 * alien_width)
+
+		ship_height = self.ship_tablet.rect.height
+		available_space_y = self.settings_tablet.screen_height - (alien_height * 2 ) + ship_height // 2
+		num_rows = available_space_y // (2 * alien_height)
+		for row_num in range(num_rows):
+			for alien_num in range(num_aliens_x):
+				self._create_alien(alien_num, row_num)
+
+	def _create_alien(self, alien_num, row_num):
+		alien_tablet = Alien_tablet(self)
+		alien_width, alien_height = alien_tablet.rect.size
+		alien_tablet.x = self.settings_tablet.screen_width - alien_width - (2 * alien_width * alien_num)
+		alien_tablet.rect.x = alien_tablet.x
+		alien_tablet.rect.y = alien_height + 2 * alien_height * row_num
+		self.aliens.add(alien_tablet)
+
+	def _update_aliens(self):
+		self.aliens.update()
+
+		if pygame.sprite.spritecollideany(self.ship_tablet, self.aliens):
+			print("-1 alien")
+
+
 	def _update_screen(self):
 		self.screen.fill(self.settings_tablet.bg_color)
 		self.ship_tablet.blitme()
 		for bullet in self.bullets.sprites():
 			bullet.draw_bullet()
+		self.aliens.draw(self.screen)
+
 		# отображение последнего прорисованного экрана
 		pygame.display.flip()
 

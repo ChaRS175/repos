@@ -28,4 +28,8 @@ class Ship():
 		# рисует корабль в текущей позиции
 		self.screen.blit(self.image, self.rect)
 
+	def center_ship(self):
+		self.rect.midbottom = self.screen_rect.midbottom
+		self.x = float(self.rect.x)
+
 # вывод корабля на экран 248стр 27.06.26
