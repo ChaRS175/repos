@@ -6,7 +6,7 @@ print(contents.rstrip())
 
 print('')
 
-file_path = "/Users/minec/OneDrive/Рабочий стол/repos/gosha/Files_and_exceptions/Ya_Pi_ya_Pi_ya_Pi_Pi_Pi.txt"
+file_path = "/Desktop/repos/gosha/Files_and_exceptions/Ya_Pi_ya_Pi_ya_Pi_Pi_Pi.txt"
 with open(file_path) as file_object:
 	contents = file_object.read()
 

@@ -111,6 +111,7 @@ class AlienInvasion:
 		self.stats.game_active = True
 		self.scoreboard.prep_score()
 		self.scoreboard.prep_level()
+		self.scoreboard.prep_ships()
 		self.show_difficulty_menu = False
 
 		self.aliens.empty()
@@ -227,6 +228,7 @@ class AlienInvasion:
 	def _ship_hit(self):
 		if self.stats.ships_left > 1:
 			self.stats.ships_left -= 1
+			self.scoreboard.prep_ships()
 
 			self.aliens.empty()
 			self.bullets.empty()
@@ -297,3 +299,5 @@ if __name__ == '__main__':
 # с 9.07.26 по 10.07.26 делал усложнение и ускорение игры
 
 # с 11.07.26 по 13.07.26 делал кнопки сложности
+
+# полностью кончил 17.07.26
